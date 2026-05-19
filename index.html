@@ -276,3 +276,89 @@
         </div>
     </div>
 </section>
+<section class="py-20 bg-surface-container-high">
+    <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row gap-gutter">
+        <div class="flex-1 space-y-6">
+            <h3 class="font-headline-lg text-headline-lg text-secondary">Visítanos</h3>
+            <p class="font-body-lg text-on-surface-variant">Ven a sentir el aroma del cacao recién procesado en nuestra boutique del centro. Te esperamos para una degustación personalizada.</p>
+            <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-secondary">location_on</span>
+                    <div>
+                        <p class="font-label-md text-on-surface">Dirección</p>
+                        <p class="text-on-surface-variant">Calle de la Dulzura 123, Madrid, España</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-secondary">schedule</span>
+                    <div>
+                        <p class="font-label-md text-on-surface">Horario</p>
+                        <p class="text-on-surface-variant">Lun - Sáb: 10:00 - 20:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1 h-80 rounded-2xl overflow-hidden shadow-md bg-outline-variant/20 relative">
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-secondary/40">
+                <span class="material-symbols-outlined text-6xl mb-4">map</span>
+                <p class="font-label-md">Mapa Interactivo</p>
+            </div>
+            <img alt="Map location" class="w-full h-full object-cover mix-blend-overlay opacity-30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqPomtIBwdA1mBgKKXQVxiOMFdGhhXRjI0SwBQ5cMECcHNE0peb2cqEyOhgiNXgG4YlWS0Azm6kGtSrJ7CjXFMF8u7ykzgfQ67FZAcPV3FiUSEKbt50byNeDO6mvpKS4djW3MULzXYLqb9U9yu46WlSIYUDUh58YqEi0vG1y0KBQT4cMWfZTakynj6IbYtTLfLoeA-6ufBjUYKLEwRzk318hKm3dRRhEgw910u3yL2JiD4Nnm5qpaXruDgQ-zWOtTuvis_nmyN9TpQ"/>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/30 py-8 w-full mt-auto">
+    <div class="flex flex-col items-center gap-gutter px-margin-mobile w-full">
+        <h2 class="font-display-lg-mobile text-headline-md text-secondary">Dulces Momentos</h2>
+        <div class="flex flex-wrap justify-center gap-6">
+            <a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 cursor-pointer" href="#">Our Story</a>
+            <a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 cursor-pointer" href="#">Shipping</a>
+            <a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 cursor-pointer" href="#">Returns</a>
+            <a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 cursor-pointer" href="#">Contact</a>
+        </div>
+        <div class="w-24 h-px bg-outline-variant/30"></div>
+        <p class="font-body-md text-on-surface-variant text-center">© 2024 Dulces Momentos. Crafted with passion.</p>
+    </div>
+</footer>
+
+<script>
+    // Smooth scroll implementation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Testimonial carousel simple interaction
+    const carousel = document.querySelector('.no-scrollbar');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+    });
+    carousel.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+    carousel.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+    carousel.addEventListener('mousemove', (e) => {
+        if(!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 2;
+        carousel.scrollLeft = scrollLeft - walk;
+    });
+</script>
+</body>
+</html>
